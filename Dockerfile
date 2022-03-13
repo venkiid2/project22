@@ -1,9 +1,8 @@
-FROM komljen/jdk-oracle
-MAINTAINER Alen Komljen <alen.komljen@live.com>
+FROM openjdk:8-jre-alpine
 
-ENV JAVA_HEAP_SIZE 512
-ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
-RUN apt-get update && apt-get install tomcat8 -y
-ADD  /out/artifacts/Conect4Game_jar /usr/local/tomcat8/webapps
-EXPOSE 8080          
-          
+EXPOSE 8080
+
+COPY ./build/libs/my-app-1.0-SNAPSHOT.jar /usr/app/
+WORKDIR /usr/app
+
+ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
