@@ -32,6 +32,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:latest
     - name: Build and Push docker Image
-      run: docker login -u venkateshnvs22 -p 9989775570v && docker push venkateshnvs22/new:my-image-name
+      run: docker login -u ${{USER_NAME}} -p ${{USER_PASSWORD}} && docker push venkateshnvs22/new:my-image-name
        
        
