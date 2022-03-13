@@ -34,4 +34,7 @@ jobs:
     - name: Build and Push docker Image
       run: docker login -u venkateshnvs22 -p 9989775570v
     - name: publish
-      run: docker push venkateshnvs22/hello:my-image-name:1647165590
+      uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: user/app:latest
