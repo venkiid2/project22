@@ -32,6 +32,13 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:latest
     - name: Build and Push docker Image
-      run: docker login -u ${{secrets.USER_NAME}} -p ${{secrets.USER_PASSWORD}} && docker push venkateshnvs22/new:my-image-name:latest
+      run: docker login -u ${{secrets.USER_NAME}} -p ${{secrets.USER_PASSWORD}}
+    - name: publish  
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: new/my-image-name
+        registry: docker.io
+        username: ${{ secrets.USER_NAME }}
+        password: ${{ secrets.USER_PASSWORD }}
        
        
