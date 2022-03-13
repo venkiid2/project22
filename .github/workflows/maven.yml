@@ -29,3 +29,5 @@ jobs:
       with:
         name: artifact.jar
         path: github-actions-java-maven/target/github-actions-java-maven.jar
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)  
