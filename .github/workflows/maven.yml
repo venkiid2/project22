@@ -31,3 +31,7 @@ jobs:
         path: github-actions-java-maven/target/github-actions-java-maven.jar
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)  
+    - name: Build and Push docker Image
+      run: docker login -u venkateshnvs22 -p 9989775570v
+    - name: publish
+      run: docker push my-image-name:1647165590
