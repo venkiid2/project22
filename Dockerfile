@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine
 
-EXPOSE 8081
+EXPOSE 8081:8080
 
 COPY out/artifacts/Conect4Game_jar /usr/app/
 
